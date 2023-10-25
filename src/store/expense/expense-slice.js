@@ -8,4 +8,11 @@ export const expenseSlice = createSlice({
       { name: "Laptop", price: 1000.0 },
     ],
   },
+  reducers: {
+    addExpenseAction: (currentSlice, action) => {
+      currentSlice.expenseList.push(action.payload);
+    },
+  },
 });
+
+export const { addExpenseAction } = expenseSlice.actions;
