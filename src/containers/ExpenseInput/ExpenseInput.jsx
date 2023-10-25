@@ -10,7 +10,7 @@ export function ExpenseInput(props) {
 
   function submit(e) {
     e.preventDefault();
-    dispatch(addExpenseAction({ price, name: expenseName }));
+    dispatch(addExpenseAction({ price: parseFloat(price), name: expenseName }));
   }
 
   return (
