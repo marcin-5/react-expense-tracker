@@ -11,6 +11,7 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { expenseSlice } from "./expense/expense-slice";
+import { loggerMiddleware } from "./middlewares/logger-middleware";
 
 // combine reducersinto a single reducer
 const rootReducer = combineReducers({
@@ -37,7 +38,7 @@ const store = configureStore({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
       },
-    }),
+    }).prepend(loggerMiddleware.middleware),
 });
 
 // create a persisted version of the Store and export it
